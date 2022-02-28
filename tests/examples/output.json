@@ -1,0 +1,137 @@
+{
+  "generated": "Generated on Mon Feb 28 17:49:11 2022",
+  "generated_timestamp": 1646070551,
+  "war_status": "The armies of the West prevail over the forces of the Dark Lord.\nFighting has been limited to a few skirmishes.\nA few soldiers of the Dark Lord were boldly slain, latest kill being 2 days ago.\nA few soldiers of the West fell in battle, latest kill being 57 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Champion",
+          "name": "Uge",
+          "race": "Dwarven",
+          "rank": "1"
+        },
+        {
+          "class": "Warrior",
+          "name": "Curve",
+          "race": "Dwarven",
+          "rank": "2"
+        },
+        {
+          "class": "Ranger",
+          "name": "Eolo",
+          "race": "Silvan",
+          "rank": "3"
+        },
+        {
+          "class": "Wizard",
+          "name": "Ph\u00eclos",
+          "race": "Half-elven",
+          "rank": "4"
+        },
+        {
+          "class": "Hero",
+          "name": "Kazongal",
+          "race": "Dwarven",
+          "rank": "5"
+        },
+        {
+          "class": "Priest",
+          "name": "Elentirmo",
+          "race": "Half-elven",
+          "rank": "6"
+        },
+        {
+          "class": "Wizard",
+          "name": "Eccairandur",
+          "race": "Noldorin",
+          "rank": "7"
+        },
+        {
+          "class": "Warden",
+          "name": "Tiresus",
+          "race": "Eriadorian",
+          "rank": "8"
+        },
+        {
+          "class": "Hero",
+          "name": "Stinson",
+          "race": "Dwarven",
+          "rank": "9"
+        },
+        {
+          "class": "Priest",
+          "name": "Derek",
+          "race": "Half-elven",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Soldier",
+          "name": "Atumhnar",
+          "race": "Zaugurz",
+          "rank": "1"
+        },
+        {
+          "class": "Brute",
+          "name": "Fluch",
+          "race": "Mountain Troll",
+          "rank": "2"
+        },
+        {
+          "class": "Wizard",
+          "name": "Ripple",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "3"
+        },
+        {
+          "class": "Witch",
+          "name": "Glasya",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "4"
+        },
+        {
+          "class": "Wanderer",
+          "name": "Odd",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "5"
+        },
+        {
+          "class": "Shaman",
+          "name": "B\u00farzog",
+          "race": "Tarkhnarb",
+          "rank": "6"
+        },
+        {
+          "class": "Murderess",
+          "name": "Mihhailova",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "7"
+        },
+        {
+          "class": "Soldier",
+          "name": "Knack",
+          "race": "Zaugurz",
+          "rank": "8"
+        },
+        {
+          "class": "Warrior",
+          "name": "Urgoz",
+          "race": "Tarkhnarb",
+          "rank": "9"
+        },
+        {
+          "class": "Champion",
+          "name": "Khogai",
+          "race": "Tarkhnarb",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}

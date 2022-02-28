@@ -1,0 +1,12 @@
+coverage[toml]
+flake8==3.9.2
+flake8-tabs==2.3.2
+httpretty
+isort==5.8.0
+mypy
+pre-commit
+pyproject-flake8==0.0.1a2
+tan==21.14
+types-beautifulsoup4
+types-jsonschema
+types-requests

@@ -1,0 +1,58 @@
+{
+  "id": "warlords.schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Warlords",
+  "description": "Warlords information from mume.org.",
+  "type": "object",
+  "properties": {
+    "generated": {
+      "type": "string",
+      "pattern": "^Generated on [a-zA-Z]+ [a-zA-Z]+ [0-9]+ [0-9:]+ [0-9]+$"
+    },
+    "generated_timestamp": {
+      "type": "integer"
+    },
+    "war_status": {
+      "type": "string"
+    },
+    "warlords": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "properties": {
+          "characters": {
+            "type": "array",
+            "minItems": 10,
+            "maxItems": 10,
+            "items": {
+              "type": "object",
+              "properties": {
+                "class": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "race": {
+                  "type": "string"
+                },
+                "rank": {
+                  "type": "string",
+                  "pattern": "^([1-9]|10)$"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
