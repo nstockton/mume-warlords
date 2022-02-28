@@ -54,7 +54,7 @@ The `warlords` objects contain the following data:
 | `characters` | array | The array of character objects for a side of the war **see below**. |
 | `description` | string | Textual description of which side of the war the `characters` array represents. |
 
-The `characters` objects contain the following data:
+The `character` objects contain the following data:
 
 | Key | Type | Description |
 | --- | --- | --- |
