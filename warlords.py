@@ -82,7 +82,7 @@ def get_warlords() -> dict[str, Any]:
 	tag = soup.find("h2", text="War status")
 	if not isinstance(tag, Tag):
 		raise RuntimeError("War status heading not found.")
-	tag = tag.find_next_sibling()
+	tag = tag.find_next_sibling("p")
 	if not isinstance(tag, Tag):  # pragma: no cover
 		raise RuntimeError("War status text not found.")
 	war_status, generated = tag.text.strip().rsplit("\n", 1)
