@@ -42,17 +42,17 @@ The top level object contains the following data:
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `generated` | string | Textual representation of when the MUME server last generated the warlords list. |
-| `generated_timestamp` | integer | The Unix timestamp when the MUME server last generated the warlords list. |
+| `generated` | string | The time when MUME last updated the warlords list. |
+| `generated_timestamp` | integer | A Unix timestamp, representing the time when MUME last updated the warlords list. |
 | `war_status` | string | A summery of the state of the war. |
-| `warlords` | array | The list of warlords objects **see below**.
+| `warlords` | array | An array of warlord objects, each representing a side of the war **see below**.
 
-The `warlords` objects contain the following data:
+The `warlord` objects contain the following data:
 
 | Key | Type | Description |
 | --- | --- | --- |
-| `characters` | array | The array of character objects for a side of the war **see below**. |
-| `description` | string | Textual description of which side of the war the `characters` array represents. |
+| `characters` | array | An array of character objects **see below**. |
+| `description` | string | A description of the side of the war. |
 
 The `character` objects contain the following data:
 
