@@ -86,6 +86,7 @@ def get_warlords() -> dict[str, Any]:
 	if not isinstance(tag, Tag):  # pragma: no cover
 		raise RuntimeError("War status text not found.")
 	war_status, generated = tag.text.strip().rsplit("\n", 1)
+	generated = " ".join(generated.split())  # Replace whitespace with single spaces.
 	generated_timestamp: int = int(
 		datetime.strptime(generated, TIME_FORMAT).replace(tzinfo=timezone.utc).timestamp()
 	)
