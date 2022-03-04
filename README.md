@@ -1,6 +1,7 @@
 # mume-warlords
 
 Exports the [warlords list](https://mume.org/news/war "MUME Warlords Page") from [MUME](https://mume.org "MUME Official Site") to JSON format.
+Automatically generated data in JSON format can be found [here.](https://raw.githubusercontent.com/nstockton/mume-warlords/current/warlords.json "Current Warlords Information As JSON")
 
 ## License And Credits
 
