@@ -50,6 +50,7 @@ jobs:
           python -m pre_commit run --all-files --show-diff-on-failure --hook-stage push
       - name: Generate Warlords List
         run: |
+          source $VENV
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           mkdir -p current
