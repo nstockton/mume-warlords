@@ -15,25 +15,21 @@ Install the [Python interpreter,](https://python.org "Python Home Page") and mak
 
 After Python is installed, execute the following commands from the top level directory of this repository to install the dependencies.
 ```
-python -m venv venv
-venv\Scripts\activate.bat
-pip install -Ur requirements.txt
+pip3 install --user --upgrade poetry
+poetry install
 ```
 
-If you wish to contribute to this project, install the development dependencies with the following commands.
+If you wish to contribute to this project, setup Pre-Commit with the following commands.
 ```
-venv\Scripts\activate.bat
-pip install -Ur requirements-dev.txt
-pre-commit install -t pre-commit
-pre-commit install -t pre-push
+poetry run pre-commit install -t pre-commit
+poetry run pre-commit install -t pre-push
 ```
 
 ## Usage
 
 In order to generate the warlords list in JSON format, execute the following commands.
 ```
-venv\Scripts\activate.bat
-python warlords.py
+poetry run warlords
 ```
 Output will be saved to `warlords.json`.
 

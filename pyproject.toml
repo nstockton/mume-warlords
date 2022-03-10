@@ -1,10 +1,74 @@
+[build-system]
+	requires = [
+		"poetry-core>=1.0.0",
+		"poetry-dynamic-versioning>=0.13.1,<0.14.0",
+	]
+	build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+	name = "mume-warlords"
+	version = "0.0.0"
+	description = "Exports the warlords list from MUME to JSON format."
+	authors = ["Nick Stockton <nstockton@users.noreply.github.com>"]
+	license = "MPL-2.0"
+	readme = "README.md"
+	homepage = "https://github.com/nstockton/mume-warlords"
+	repository = "https://github.com/nstockton/mume-warlords"
+	keywords = ["mume", "warlords"]
+	classifiers = []
+	packages = [
+		{include = "warlords", from = "src"},
+	]
+	include = [
+		{path = "tests/*", format = "sdist"},
+		{path = "poetry.lock", format = "sdist"},
+	]
+	exclude = []
+
+[tool.poetry.dependencies]
+	python = "^3.7"
+	beautifulsoup4 = "^4.10"
+	jsonschema = "^4.4"
+	requests = {version = "^2.27", extras = ["security"]}
+
+[tool.poetry.dev-dependencies]
+	coverage = {version = "^6.3", extras = ["toml"]}
+	flake8 = "^3.9"
+	flake8-tabs = "^2.3"
+	httpretty = "^1.1"
+	isort = "~5.8"
+	mypy = "^0.931"
+	poetry-dynamic-versioning = "^0.13.1"
+	pre-commit = "^2.17"
+	pyproject-flake8 = "^0.0.1-alpha.2"
+	tan = "^21.14"
+	types-beautifulsoup4 = "^4.10"
+	types-jsonschema = "^4.4"
+	types-requests = "^2.27"
+
+[tool.poetry.scripts]
+	warlords = "warlords.main:run"
+
+[tool.poetry-dynamic-versioning]
+	enable = true
+	vcs = "git"
+	format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}-{{ distance }}-g{{ commit|truncate(7,true,'') }}{% endif %}"
+
+[tool.poetry-dynamic-versioning.substitution]
+	files = [
+		"src/*.py", "src/*/__init__.py", "src/*/__version__.py", "src/*/_version.py",
+	]
+	patterns = [
+		"(^__version__(?:\\s*[:]\\s*str)?\\s*=\\s*['\"])[^'\"]*(['\"])",
+	]
+
 [tool.black]
 	use-tabs = true
 	safe = true
 	line-length = 110
 	target-version = ["py37", "py38", "py39"]
-	exclude = '(/(\.eggs|\.git|\.mypy_cache|\.tox|venv|build|dist)|__pycache__)'
-	include = '/(tests.*\.py[isw]?|warlords\.py)$'
+	exclude = '(/(\.eggs|\.git|\.mypy_cache|\.tox|\.venv|build|dist)|__pycache__)'
+	include = '/((src|tests).*\.py[isw]?)$'
 
 [tool.coverage.report]
 	precision = 0
@@ -23,7 +87,9 @@
 
 [tool.coverage.run]
 	source = ["warlords"]
-	omit = []
+	omit = [
+		"src/warlords/__main__.py",
+	]
 
 [tool.flake8]
 	# Note that boolean values need to be inside strings. Flake8 will convert them.
@@ -114,7 +180,7 @@
 	import_heading_localfolder = "Local Modules:"
 
 [tool.mypy]
-	files = ["tests", "warlords.py"]
+	files = ["src/warlords", "tests"]
 	exclude = '^$'
 	local_partial_types = true
 	strict = true
@@ -129,5 +195,7 @@
 	disallow_any_decorated = false
 
 [[tool.mypy.overrides]]
-	module = "httpretty.*"
+	module = [
+		"httpretty.*",
+	]
 	ignore_missing_imports = true

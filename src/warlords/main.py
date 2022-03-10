@@ -10,6 +10,8 @@ from __future__ import annotations
 
 # Built-in Modules:
 import json
+import os.path
+import sys
 from collections.abc import Mapping, Sequence
 from datetime import datetime, timezone
 from typing import Any, Optional
@@ -23,8 +25,25 @@ from bs4.element import Tag
 
 URL: str = "https://mume.org/news/war"
 OUTPUT_PATH: str = "warlords.json"
-SCHEMA_PATH: str = "warlords.json.schema"
+SCHEMA_FILE: str = "warlords.json.schema"
 TIME_FORMAT: str = "Generated on %a %b %d %H:%M:%S %Y"
+
+
+def get_directory_path(*args: str) -> str:
+	"""
+	Retrieves the path of the directory where the program is located.
+
+	Args:
+		*args: Positional arguments to be passed to os.join after the directory path.
+
+	Returns:
+		The path.
+	"""
+	if getattr(sys, "frozen", None):
+		path = os.path.dirname(sys.executable)
+	else:
+		path = os.path.join(os.path.dirname(__file__))
+	return os.path.realpath(os.path.join(path, *args))
 
 
 def validate(data: Mapping[str, Any], schema_path: str) -> None:
@@ -117,5 +136,6 @@ def get_warlords() -> dict[str, Any]:
 	}
 
 
-if __name__ == "__main__":
-	save(get_warlords(), OUTPUT_PATH, SCHEMA_PATH)
+def run() -> None:
+	results: dict[str, Any] = get_warlords()
+	save(results, OUTPUT_PATH, get_directory_path(SCHEMA_FILE))
