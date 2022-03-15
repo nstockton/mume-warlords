@@ -52,7 +52,7 @@
 [tool.poetry-dynamic-versioning]
 	enable = true
 	vcs = "git"
-	format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}-{{ distance }}-g{{ commit|truncate(7,true,'') }}{% endif %}"
+	format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}+{{ distance }}.g{{ commit|truncate(7,true,'') }}{% endif %}"
 
 [tool.poetry-dynamic-versioning.substitution]
 	files = [
