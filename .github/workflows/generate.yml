@@ -14,18 +14,18 @@ jobs:
         shell: bash
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # All history for all branches and tags.
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: "3.10"
           # Optional - x64 or x86 architecture, defaults to x64.
           architecture: x64
       - name: Setup Virtual Environment
         id: cache-virtualenv
-        uses: syphar/restore-virtualenv@v1
+        uses: syphar/restore-virtualenv@v1.2
       - name: Restore Pip Cache
         uses: syphar/restore-pip-download-cache@v1
         if: steps.cache-virtualenv.outputs.cache-hit != 'true'
