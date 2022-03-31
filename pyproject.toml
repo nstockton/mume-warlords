@@ -32,11 +32,13 @@
 	requests = {version = "^2.27", extras = ["security"]}
 
 [tool.poetry.dev-dependencies]
+	click = "8.0.4"  # Required by Tan.
 	coverage = {version = "^6.3", extras = ["toml"]}
 	flake8 = "^3.9"
 	flake8-tabs = "^2.3"
 	httpretty = "^1.1"
 	isort = "~5.8"
+	jinja2 = "3.0.3"  # Required by Tan.
 	mypy = "^0.931"
 	poetry-dynamic-versioning = "^0.13.1"
 	pre-commit = "^2.17"
