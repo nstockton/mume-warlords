@@ -1,0 +1,137 @@
+{
+  "generated": "Generated on Sun Jul 24 15:47:06 2022",
+  "generated_timestamp": 1658677626,
+  "war_status": "The forces of the Dark Lord are matched by the armies of the West.\nFighting has been limited to a few skirmishes.\nA few soldiers of the Dark Lord fell in battle, latest kill being 80 days ago.\nA few soldiers of the West fell in battle, latest kill being 25 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Champion",
+          "name": "Andrew",
+          "race": "Half-elven",
+          "rank": "1"
+        },
+        {
+          "class": "Hero",
+          "name": "Pation",
+          "race": "Noldorin",
+          "rank": "2"
+        },
+        {
+          "class": "Heroine",
+          "name": "Lingura",
+          "race": "Noldorin",
+          "rank": "3"
+        },
+        {
+          "class": "Battlemaster",
+          "name": "Grizzle",
+          "race": "Beorning",
+          "rank": "4"
+        },
+        {
+          "class": "Warrior",
+          "name": "Glaran",
+          "race": "Dwarven",
+          "rank": "5"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Boltok",
+          "race": "Noldorin",
+          "rank": "6"
+        },
+        {
+          "class": "Hero",
+          "name": "Mandalorian",
+          "race": "Eriadorian",
+          "rank": "7"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Vik",
+          "race": "Noldorin",
+          "rank": "8"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Wyk",
+          "race": "Noldorin",
+          "rank": "9"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Kili",
+          "race": "Dwarven",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Envoy",
+          "name": "Lonew\u00fclf",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "1"
+        },
+        {
+          "class": "Mountaineer",
+          "name": "Z\u00fbd",
+          "race": "Tarkhnarb",
+          "rank": "2"
+        },
+        {
+          "class": "Wanderer",
+          "name": "Icetee",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "3"
+        },
+        {
+          "class": "Rider",
+          "name": "Croax",
+          "race": "Tarkhnarb",
+          "rank": "4"
+        },
+        {
+          "class": "Scholar",
+          "name": "Str\u00f4nk",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "5"
+        },
+        {
+          "class": "Wrecker",
+          "name": "Jinjer",
+          "race": "Cave Troll",
+          "rank": "6"
+        },
+        {
+          "class": "Soldier",
+          "name": "Atumhnar",
+          "race": "Zaugurz",
+          "rank": "7"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Capcaun",
+          "race": "Tarkhnarb",
+          "rank": "8"
+        },
+        {
+          "class": "Softskin",
+          "name": "Troth",
+          "race": "Cave Troll",
+          "rank": "9"
+        },
+        {
+          "class": "Rider",
+          "name": "Urgth",
+          "race": "Tarkhnarb",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
