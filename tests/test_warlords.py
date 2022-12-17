@@ -7,7 +7,6 @@
 from __future__ import annotations
 
 # Built-in Modules:
-import httpretty
 import json
 import os.path
 import sys
@@ -16,6 +15,7 @@ from unittest import TestCase
 from unittest.mock import Mock, patch
 
 # Third-party Modules:
+import httpretty
 from jsonschema.exceptions import ValidationError
 
 # Warlords Modules:
