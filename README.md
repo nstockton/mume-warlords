@@ -1,36 +1,58 @@
 # mume-warlords
 
-Exports the [warlords list](https://mume.org/news/war "MUME Warlords Page") from [MUME](https://mume.org "MUME Official Site") to JSON format.
-Automatically generated data in JSON format can be found [here.](https://raw.githubusercontent.com/nstockton/mume-warlords/current/warlords.json "Current Warlords Information As JSON")
+Exports the [warlords list][] from [MUME][] to JSON format.
+Automatically generated data in JSON format can be found [here.][current warlords json]
 
 ## License And Credits
 
-This project is licensed under the terms of the [Mozilla Public License, version 2.0.](https://www.mozilla.org/en-US/MPL/2.0 "License Page")
-
-This project created and maintained by [Nick Stockton.](https://github.com/nstockton)
+This project was created by [Nick Stockton,][Nick Stockton Github] and is licensed under the terms of the [Mozilla Public License, version 2.0.][MPL2]
 
 ## Installation
 
-Install the [Python interpreter,](https://python.org "Python Home Page") and make sure it's in your path before running this package.
+Install the [Python interpreter,][Python] and make sure it's in your path before running this package.
 
-After Python is installed, execute the following commands from the top level directory of this repository to install the dependencies.
+### Windows-specific Instructions
+
+Execute the following commands from the root directory of this repository to install the module dependencies.
 ```
-pip3 install --user --upgrade poetry
-poetry install
+py -3 -m venv .venv
+.venv\Scripts\activate.bat
+pip install --upgrade --require-hashes --requirement requirements-poetry.txt
+poetry install --no-ansi
+pre-commit install -t pre-commit
+pre-commit install -t pre-push
 ```
 
-If you wish to contribute to this project, setup Pre-Commit with the following commands.
+### Linux-specific Instructions
+
+Execute the following commands from the root directory of this repository to install the module dependencies.
 ```
-poetry run pre-commit install -t pre-commit
-poetry run pre-commit install -t pre-push
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade --require-hashes --requirement requirements-poetry.txt
+poetry install --no-ansi
+pre-commit install -t pre-commit
+pre-commit install -t pre-push
 ```
 
 ## Usage
 
 In order to generate the warlords list in JSON format, execute the following commands.
+
+### Windows
+
 ```
-poetry run warlords
+.venv\Scripts\activate.bat
+warlords
 ```
+
+### Linux
+
+```
+source .venv/bin/activate
+warlords
+```
+
 Output will be saved to `warlords.json`.
 
 ## Format
@@ -59,3 +81,11 @@ The `character` objects contain the following data:
 | `name` | string | The character's name. |
 | `race` | string | The character's race. |
 | `rank` | string | The character's rank. |
+
+
+[warlords list]: https://mume.org/news/war (MUME Warlords Page)
+[MUME]: https://mume.org (MUME Official Site)
+[current warlords json]: https://raw.githubusercontent.com/nstockton/mume-warlords/current/warlords.json (Current Warlords As JSon)
+[Nick Stockton Github]: https://github.com/nstockton (Nick Stockton's Github Page)
+[MPL2]: https://www.mozilla.org/en-US/MPL/2.0 (MPL 2.0 Page)
+[Python]: https://python.org (Python Main Page)
