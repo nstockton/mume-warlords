@@ -98,7 +98,7 @@ def get_warlords() -> dict[str, Any]:
 	soup = BeautifulSoup(page.text, "html.parser")
 	war_status: str
 	generated: str
-	tag = soup.find("h2", text="War status")
+	tag = soup.find("h2", string="War status")
 	if not isinstance(tag, Tag):
 		raise RuntimeError("War status heading not found.")
 	tag = tag.find_next_sibling("p")
