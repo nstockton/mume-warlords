@@ -63,6 +63,7 @@ The top level object contains the following data:
 | --- | --- | --- |
 | `generated` | string | The time when MUME last updated the warlords list. |
 | `generated_timestamp` | integer | A Unix timestamp, representing the time when MUME last updated the warlords list. |
+| `schema_version` | integer | The schema version, used for data verification. |
 | `war_status` | string | A summery of the state of the war. |
 | `warlords` | array | An array of warlord objects, each representing a side of the war **see below**.
 
