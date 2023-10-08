@@ -1,5 +1,6 @@
 * text=auto
 *.html text eol=lf
+*.in text eol=crlf
 *.json text eol=crlf
 *.json.schema text eol=crlf
 *.md text eol=crlf
