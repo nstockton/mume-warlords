@@ -1,7 +1,7 @@
 [build-system]
 	requires = [
 		"poetry-core>=1.0.0",
-		"poetry-dynamic-versioning==0.20.0",
+		"poetry-dynamic-versioning==1.1.0",
 	]
 	build-backend = "poetry.core.masonry.api"
 
@@ -23,11 +23,11 @@
 		"Programming Language :: Python",
 		"Programming Language :: Python :: 3",
 		"Programming Language :: Python :: 3 :: Only",
-		"Programming Language :: Python :: 3.7",
 		"Programming Language :: Python :: 3.8",
 		"Programming Language :: Python :: 3.9",
 		"Programming Language :: Python :: 3.10",
 		"Programming Language :: Python :: 3.11",
+		"Programming Language :: Python :: 3.12",
 		"Programming Language :: Python :: Implementation",
 		"Programming Language :: Python :: Implementation :: CPython",
 		"Operating System :: MacOS",
@@ -53,28 +53,28 @@
 [tool.poetry.dependencies]
 	python = "^3.8"
 	beautifulsoup4 = "^4.10"
-	jsonschema = "^4.4"
+	jsonschema = "^4.17"
 	requests = {version = "^2.27", extras = ["security"]}
 
 [tool.poetry.dev-dependencies]
 	httpretty = "^1.1"
-	poetry-dynamic-versioning = "0.20.0"
-	pre-commit = "^2.17"
+	poetry-dynamic-versioning = "1.1.0"
+	pre-commit = "^3.4"
 	types-beautifulsoup4 = "^4.10"
-	types-jsonschema = "^4.4"
+	types-jsonschema = "^4.17"
 	types-requests = "^2.27"
 
 [tool.poetry.group.lint.dependencies]
 	click = "8.0.4"  # Required by Tan.
 	flake8 = "5.0.4"
-	isort = "^5.10.1"
+	isort = "^5.12.0"
 	jinja2 = "3.0.3"  # Required by Tan.
-	mypy = ">=0.950,<1.0"
+	mypy = "^1.5"
 	pyproject-flake8 = "5.0.4"
-	tan = "^21.14"
+	tan = "^23.7"
 
 [tool.poetry.group.test.dependencies]
-	coverage = {version = "^6.5", extras = ["toml"]}
+	coverage = {version = "^7.3", extras = ["toml"]}
 
 [tool.poetry.scripts]
 	warlords = "warlords.main:run"
@@ -96,7 +96,7 @@
 	use-tabs = true
 	safe = true
 	line-length = 110
-	target-version = ["py38", "py39", "py310"]
+	target-version = ["py38", "py39", "py310", "py311", "py312"]
 	exclude = '(/(\.eggs|\.git|\.mypy_cache|\.tox|\.venv|build|dist)|__pycache__)'
 	include = '/((src|tests).*\.py[isw]?)$'
 
