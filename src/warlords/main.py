@@ -23,9 +23,10 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 
 
+SCHEMA_VERSION: int = 1
 URL: str = "https://mume.org/news/war"
 OUTPUT_PATH: str = "warlords.json"
-SCHEMA_FILE: str = "warlords.json.schema"
+SCHEMA_FILE: str = f"warlords_v{SCHEMA_VERSION}.json.schema"
 TIME_FORMAT: str = "Generated on %a %b %d %H:%M:%S %Y"
 
 
@@ -129,9 +130,10 @@ def get_warlords() -> dict[str, Any]:
 		for i, side in enumerate(side_of_war):
 			warlords[i]["characters"].append(dict(zip(headers, characters[i])))
 	return {
-		"war_status": war_status,
 		"generated": generated,
 		"generated_timestamp": generated_timestamp,
+		"schema_version": SCHEMA_VERSION,
+		"war_status": war_status,
 		"warlords": warlords,
 	}
 

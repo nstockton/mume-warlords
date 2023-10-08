@@ -1,6 +1,7 @@
 {
   "generated": "Generated on Mon Feb 28 17:49:11 2022",
   "generated_timestamp": 1646070551,
+  "schema_version": 1,
   "war_status": "The armies of the West prevail over the forces of the Dark Lord.\nFighting has been limited to a few skirmishes.\nA few soldiers of the Dark Lord were boldly slain, latest kill being 2 days ago.\nA few soldiers of the West fell in battle, latest kill being 57 days ago.\n",
   "warlords": [
     {

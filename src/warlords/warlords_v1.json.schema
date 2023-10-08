@@ -1,7 +1,7 @@
 {
-  "id": "warlords.schema.json",
+  "id": "warlords_v1.json.schema",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Warlords",
+  "title": "Warlords V1",
   "description": "Warlords information from mume.org.",
   "type": "object",
   "properties": {
@@ -11,6 +11,10 @@
     },
     "generated_timestamp": {
       "type": "integer"
+    },
+    "schema_version": {
+      "type": "integer",
+      "enum": [1]
     },
     "war_status": {
       "type": "string"
@@ -43,6 +47,12 @@
                   "pattern": "^([1-9]|10)$"
                 }
               },
+              "required": [
+                "class",
+                "name",
+                "race",
+                "rank"
+              ],
               "additionalProperties": false
             }
           },
@@ -50,9 +60,20 @@
             "type": "string"
           }
         },
+        "required": [
+          "characters",
+          "description"
+        ],
         "additionalProperties": false
       }
     }
   },
+  "required": [
+    "generated",
+    "generated_timestamp",
+    "schema_version",
+    "war_status",
+    "warlords"
+  ],
   "additionalProperties": false
 }
