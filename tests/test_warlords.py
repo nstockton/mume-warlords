@@ -15,8 +15,9 @@ from unittest import TestCase
 from unittest.mock import Mock, patch
 
 # Third-party Modules:
-import httpretty
 from jsonschema.exceptions import ValidationError
+from mocket import Mocket, Mocketizer
+from mocket.mockhttp import Entry
 
 # Warlords Modules:
 from warlords.main import OUTPUT_PATH, SCHEMA_FILE, URL
@@ -71,35 +72,39 @@ class TestWarlords(TestCase):
 		self.assertEqual(split_list(lst, 2), [lst[:5], lst[5:]])
 
 	def test_get_warlords(self) -> None:
-		with httpretty.enabled(verbose=True, allow_net_connect=False):
-			httpretty.register_uri(httpretty.GET, URL, status=200, body=EXAMPLE_RESPONSE)
+		with Mocketizer(strict_mode=True):
+			valid_headers = {"content-type": "text/html; charset=UTF-8"}
+			Entry.single_register(Entry.GET, URL, body=EXAMPLE_RESPONSE, status=200, headers=valid_headers)
 			self.assertEqual(json.dumps(get_warlords(), sort_keys=True, indent=2), EXAMPLE_OUTPUT)
-			self.assertEqual(len(httpretty.latest_requests()), 1)
-			httpretty.reset()
-			invalid_status_header = EXAMPLE_RESPONSE.replace("<h2>War status</h2>", "")
-			httpretty.register_uri(httpretty.GET, URL, status=200, body=invalid_status_header)
+			self.assertEqual(len(Mocket.request_list()), 1)
+			Mocket.reset()
+			invalid_status_heading = EXAMPLE_RESPONSE.replace("<h2>War status</h2>", "")
+			Entry.single_register(
+				Entry.GET, URL, body=invalid_status_heading, status=200, headers=valid_headers
+			)
 			with self.assertRaises(RuntimeError):
 				get_warlords()
-			self.assertEqual(len(httpretty.latest_requests()), 1)
-			httpretty.reset()
+			self.assertEqual(len(Mocket.request_list()), 1)
+			Mocket.reset()
 			invalid_table = EXAMPLE_RESPONSE.replace(
 				'<table class="msg_body warlords">', '<table class="junk">'
 			)
-			httpretty.register_uri(httpretty.GET, URL, status=200, body=invalid_table)
+			Entry.single_register(Entry.GET, URL, body=invalid_table, status=200, headers=valid_headers)
 			with self.assertRaises(RuntimeError):
 				get_warlords()
-			self.assertEqual(len(httpretty.latest_requests()), 1)
-			httpretty.reset()
+			self.assertEqual(len(Mocket.request_list()), 1)
+			Mocket.reset()
 			invalid_sides = EXAMPLE_RESPONSE.replace("<th colspan=4>Armies of the West</th>", "")
-			httpretty.register_uri(httpretty.GET, URL, status=200, body=invalid_sides)
+			Entry.single_register(Entry.GET, URL, body=invalid_sides, status=200, headers=valid_headers)
 			with self.assertRaises(ValueError):
 				get_warlords()
-			self.assertEqual(len(httpretty.latest_requests()), 1)
-			httpretty.reset()
-			invalid_headers = EXAMPLE_RESPONSE.replace("<th>Rank</th>", "")
-			httpretty.register_uri(httpretty.GET, URL, status=200, body=invalid_headers)
+			self.assertEqual(len(Mocket.request_list()), 1)
+			Mocket.reset()
+			invalid_rank = EXAMPLE_RESPONSE.replace("<th>Rank</th>", "")
+			Entry.single_register(Entry.GET, URL, body=invalid_rank, status=200, headers=valid_headers)
 			with self.assertRaises(ValueError):
 				get_warlords()
+			self.assertEqual(len(Mocket.request_list()), 1)
 
 	@patch("warlords.main.save")
 	@patch("warlords.main.get_warlords")
