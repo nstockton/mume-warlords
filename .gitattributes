@@ -1,8 +1,8 @@
 * text=auto
 *.html text eol=lf
 *.in text eol=crlf
-*.json text eol=crlf
-*.json.schema text eol=crlf
+*.json text eol=lf
+*.json.schema text eol=lf
 *.md text eol=crlf
 *.py text eol=crlf
 *.pys text eol=crlf

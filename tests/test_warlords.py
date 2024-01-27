@@ -25,9 +25,10 @@ from warlords.main import __file__ as WARLORDS_PATH
 from warlords.main import get_directory_path, get_warlords, run, save, split_list, validate
 
 
-with open("tests/examples/response.html", "r", encoding="utf-8") as file_obj:
+EXAMPLES_PATH: str = os.path.realpath(os.path.join(os.path.dirname(__file__), "examples"))
+with open(os.path.join(EXAMPLES_PATH, "response.html"), "r", encoding="utf-8") as file_obj:
 	EXAMPLE_RESPONSE: str = file_obj.read()
-with open("tests/examples/output.json", "r", encoding="utf-8") as file_obj:
+with open(os.path.join(EXAMPLES_PATH, "output.json"), "r", encoding="utf-8") as file_obj:
 	EXAMPLE_OUTPUT: str = file_obj.read()
 
 
@@ -75,7 +76,7 @@ class TestWarlords(TestCase):
 		with Mocketizer(strict_mode=True):
 			valid_headers = {"content-type": "text/html; charset=UTF-8"}
 			Entry.single_register(Entry.GET, URL, body=EXAMPLE_RESPONSE, status=200, headers=valid_headers)
-			self.assertEqual(json.dumps(get_warlords(), sort_keys=True, indent=2), EXAMPLE_OUTPUT)
+			self.assertEqual(json.dumps(get_warlords(), sort_keys=True, indent=2) + "\n", EXAMPLE_OUTPUT)
 			self.assertEqual(len(Mocket.request_list()), 1)
 			Mocket.reset()
 			invalid_status_heading = EXAMPLE_RESPONSE.replace("<h2>War status</h2>", "")

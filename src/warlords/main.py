@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -69,9 +67,11 @@ def save(data: Mapping[str, Any], output_path: str, schema_path: str) -> None:
 		output_path: The location where the data should be saved.
 		schema_path: The location of the schema.
 	"""
-	with open(output_path, "w", encoding="utf-8", newline="\r\n") as file_obj:
+	lf: str = "\n"
+	with open(output_path, "w", encoding="utf-8", newline=lf) as file_obj:
 		validate(data, schema_path)
 		json.dump(data, file_obj, sort_keys=True, indent=2)
+		file_obj.write(lf)
 
 
 def split_list(lst: Sequence[Any], parts: Optional[int] = None) -> list[Sequence[Any]]:
