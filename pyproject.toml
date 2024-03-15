@@ -53,7 +53,7 @@
 [tool.poetry.dependencies]
 	python = "^3.8"
 	beautifulsoup4 = "^4.12"
-	jsonschema = "^4.2"
+	fastjsonschema = "2.19.0"
 	requests = {version = "^2.31", extras = ["security"]}
 
 [tool.poetry.dev-dependencies]
@@ -62,20 +62,19 @@
 	pre-commit = "^3.5"
 	python-magic-bin = {version = "^0.4", markers = "sys_platform == 'darwin' or sys_platform == 'win32'"}
 	types-beautifulsoup4 = "^4.12"
-	types-jsonschema = "^4.2"
 	types-requests = "^2.31"
 
 [tool.poetry.group.lint.dependencies]
 	click = "8.0.4"  # Required by Tan.
 	flake8 = "5.0.4"
 	flake8-pyproject = "1.2.3"
-	isort = "^5.12.0"
+	isort = "^5.13"
 	jinja2 = "3.0.3"  # Required by Tan.
-	mypy = "^1.7"
+	mypy = "^1.8"
 	tan = "^23.7"
 
 [tool.poetry.group.test.dependencies]
-	coverage = {version = "^7.3", extras = ["toml"]}
+	coverage = {version = "^7.4", extras = ["toml"]}
 
 [tool.poetry.scripts]
 	warlords = "warlords.main:run"
@@ -210,7 +209,7 @@
 	# Override known third-party imports.
 	known_third_party = [
 		"bs4",
-		"jsonschema",
+		"fastjsonschema",
 		"mocket",
 		"requests",
 	]
@@ -238,6 +237,7 @@
 
 [[tool.mypy.overrides]]
 	module = [
+		"fastjsonschema.*",
 		"mocket.*",
 	]
 	ignore_missing_imports = true

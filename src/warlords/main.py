@@ -10,12 +10,13 @@ from __future__ import annotations
 import json
 import os.path
 import sys
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from datetime import datetime, timezone
+from functools import lru_cache
 from typing import Any, Optional
 
 # Third-party Modules:
-import jsonschema
+import fastjsonschema
 import requests
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -45,17 +46,27 @@ def get_directory_path(*args: str) -> str:
 	return os.path.realpath(os.path.join(path, *args))
 
 
-def validate(data: Mapping[str, Any], schema_path: str) -> None:
+@lru_cache(maxsize=None)
+def get_validator(schema_path: str) -> Callable[..., None]:  # type: ignore[misc]
+	with open(schema_path, "rb") as file_obj:
+		validator: Callable[..., None] = fastjsonschema.compile(json.load(file_obj))
+	return validator
+
+
+def validate(database: Mapping[str, Any], schema_path: str) -> None:
 	"""
-	Validates data against a schema.
+	Validates a database against a schema.
 
 	Args:
-		data: The data to be validated.
+		database: The database to be validated.
 		schema_path: The location of the schema.
 	"""
-	with open(schema_path, "r", encoding="utf-8") as file_obj:
-		schema: dict[str, Any] = json.load(file_obj)
-	jsonschema.validate(data, schema)
+	validator = get_validator(schema_path)
+	try:
+		validator(database)
+	except fastjsonschema.JsonSchemaException as e:
+		print(f"Database failed validation: {e}", file=sys.stderr)
+		sys.exit(1)
 
 
 def save(data: Mapping[str, Any], output_path: str, schema_path: str) -> None:

@@ -15,7 +15,6 @@ from unittest import TestCase
 from unittest.mock import Mock, patch
 
 # Third-party Modules:
-from jsonschema.exceptions import ValidationError
 from mocket import Mocket, Mocketizer
 from mocket.mockhttp import Entry
 
@@ -46,12 +45,14 @@ class TestWarlords(TestCase):
 		mock_sys.frozen = False
 		self.assertEqual(get_directory_path(*subdirectory), unfrozen_output)
 
+	@patch("warlords.main.sys.stderr", Mock())  # Prevent error message output.
 	def test_validate(self) -> None:
 		schema_path: str = get_directory_path(SCHEMA_FILE)
 		example_json: dict[str, Any] = json.loads(EXAMPLE_OUTPUT)
 		validate(example_json, schema_path)
-		with self.assertRaises(ValidationError):
+		with self.assertRaises(SystemExit) as cm:
 			validate({"invalid": "invalid"}, schema_path)
+		self.assertEqual(cm.exception.code, 1)
 
 	@patch("warlords.main.json.dump")
 	@patch("warlords.main.validate")
