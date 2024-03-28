@@ -1,0 +1,138 @@
+{
+  "generated": "Generated on Thu Mar 28 16:58:56 2024",
+  "generated_timestamp": 1711645136,
+  "schema_version": 1,
+  "war_status": "The forces of the Dark Lord are matched by the armies of the West.\nFighting has been limited to a few skirmishes.\nA few great captains of the Dark Lord were boldly slain, latest kill being 19 days ago.\nA few noted officers of the West were boldly slain, latest kill being 31 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Warden",
+          "name": "Atz\u00f4t",
+          "race": "Firebeard",
+          "rank": "1"
+        },
+        {
+          "class": "Heroine",
+          "name": "Sirris",
+          "race": "D\u00fanadan",
+          "rank": "2"
+        },
+        {
+          "class": "Rider",
+          "name": "\u00c9adrith",
+          "race": "Rohirric",
+          "rank": "3"
+        },
+        {
+          "class": "Sage",
+          "name": "L\u00fathon",
+          "race": "Half-elven",
+          "rank": "4"
+        },
+        {
+          "class": "Warlock",
+          "name": "Madoc",
+          "race": "Fallohide",
+          "rank": "5"
+        },
+        {
+          "class": "Ranger",
+          "name": "Eolo",
+          "race": "Silvan",
+          "rank": "6"
+        },
+        {
+          "class": "Hero",
+          "name": "Han\u00edr",
+          "race": "Silvan",
+          "rank": "7"
+        },
+        {
+          "class": "Heroine",
+          "name": "Mirasantika",
+          "race": "Noldorin",
+          "rank": "8"
+        },
+        {
+          "class": "Wizard",
+          "name": "Boltok",
+          "race": "Noldorin",
+          "rank": "9"
+        },
+        {
+          "class": "Burglar",
+          "name": "F\u00eba",
+          "race": "Noldorin",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Champion",
+          "name": "Zambin",
+          "race": "Zaugurz",
+          "rank": "1"
+        },
+        {
+          "class": "Envoy",
+          "name": "Cyndane",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "2"
+        },
+        {
+          "class": "Cut-Throat",
+          "name": "Throxzum",
+          "race": "Zaugurz",
+          "rank": "3"
+        },
+        {
+          "class": "Battlemaster",
+          "name": "Z\u00fbd",
+          "race": "Tarkhnarb",
+          "rank": "4"
+        },
+        {
+          "class": "Beastmaster",
+          "name": "Lonew\u00fclf",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "5"
+        },
+        {
+          "class": "Champion",
+          "name": "Arosh",
+          "race": "Morruhk",
+          "rank": "6"
+        },
+        {
+          "class": "Witch",
+          "name": "Icetee",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "7"
+        },
+        {
+          "class": "Mercenary",
+          "name": "Risha",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "8"
+        },
+        {
+          "class": "Sage",
+          "name": "Shrew",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "9"
+        },
+        {
+          "class": "Wargrider",
+          "name": "Kadaver",
+          "race": "Morruhk",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
