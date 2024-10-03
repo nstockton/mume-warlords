@@ -138,7 +138,7 @@ def get_warlords() -> dict[str, Any]:
 	for row in rows:
 		row_data: list[str] = [i.text.strip() for i in row.find_all("td")]
 		characters: list[Sequence[str]] = split_list(row_data, len(side_of_war))
-		for i, side in enumerate(side_of_war):
+		for i, _side in enumerate(side_of_war):
 			warlords[i]["characters"].append(dict(zip(headers, characters[i])))
 	return {
 		"generated": generated,
