@@ -98,7 +98,7 @@ def split_list(lst: Sequence[Any], parts: Optional[int] = None) -> list[Sequence
 	"""
 	if parts is None:
 		return [list(lst)]
-	elif parts < 1:
+	if parts < 1:
 		raise ValueError("Number of parts must be 1 or greater.")
 	length: int = len(lst)
 	return [lst[i * length // parts : (i + 1) * length // parts] for i in range(parts)]
