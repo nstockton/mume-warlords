@@ -23,7 +23,6 @@
 		"Programming Language :: Python",
 		"Programming Language :: Python :: 3",
 		"Programming Language :: Python :: 3 :: Only",
-		"Programming Language :: Python :: 3.8",
 		"Programming Language :: Python :: 3.9",
 		"Programming Language :: Python :: 3.10",
 		"Programming Language :: Python :: 3.11",
@@ -51,7 +50,7 @@
 	exclude = []
 
 [tool.poetry.dependencies]
-	python = "^3.8"
+	python = "^3.9"
 	beautifulsoup4 = "^4.12"
 	fastjsonschema = "2.19.0"
 	requests = {version = "^2.31", extras = ["security"]}
