@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build And Generate Warlords List
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     defaults:
       run:
         shell: bash
