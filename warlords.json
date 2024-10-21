@@ -1,0 +1,138 @@
+{
+  "generated": "Generated on Mon Oct 21 19:20:51 2024",
+  "generated_timestamp": 1729538451,
+  "schema_version": 1,
+  "war_status": "The armies of the West prevail over the forces of the Dark Lord.\nFighting has been limited to a few skirmishes.\nA few soldiers of the Dark Lord were boldly slain, latest kill being 2 days ago.\nA few soldiers of the West were boldly slain, latest kill being 5 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Hunter",
+          "name": "Greenleaf",
+          "race": "Silvan",
+          "rank": "1"
+        },
+        {
+          "class": "Mountaineer",
+          "name": "Q\u00ef\u00ef",
+          "race": "Stoor",
+          "rank": "2"
+        },
+        {
+          "class": "Rider",
+          "name": "She\u00e1cz\u00fa",
+          "race": "Rohirric",
+          "rank": "3"
+        },
+        {
+          "class": "Chieftain",
+          "name": "Gollem",
+          "race": "Noldorin",
+          "rank": "4"
+        },
+        {
+          "class": "Heroine",
+          "name": "\u00c9adrith",
+          "race": "Rohirric",
+          "rank": "5"
+        },
+        {
+          "class": "Ranger",
+          "name": "Eolo",
+          "race": "Silvan",
+          "rank": "6"
+        },
+        {
+          "class": "Soldier",
+          "name": "Warreng",
+          "race": "Broadbeam",
+          "rank": "7"
+        },
+        {
+          "class": "Warden",
+          "name": "Kadol",
+          "race": "Firebeard",
+          "rank": "8"
+        },
+        {
+          "class": "Rider",
+          "name": "Camellia",
+          "race": "Stoor",
+          "rank": "9"
+        },
+        {
+          "class": "Heroine",
+          "name": "Tjemara",
+          "race": "Noldorin",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Burglar",
+          "name": "Bandito",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "1"
+        },
+        {
+          "class": "Wanderer",
+          "name": "Ramangth",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "2"
+        },
+        {
+          "class": "Battlemaster",
+          "name": "Ug\u00falukk",
+          "race": "Morruhk",
+          "rank": "3"
+        },
+        {
+          "class": "Warrior",
+          "name": "T\u00e2c\u00f6",
+          "race": "Morruhk",
+          "rank": "4"
+        },
+        {
+          "class": "Champion",
+          "name": "Zambin",
+          "race": "Zaugurz",
+          "rank": "5"
+        },
+        {
+          "class": "Wizard",
+          "name": "Ripple",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "6"
+        },
+        {
+          "class": "Assassin",
+          "name": "Artemus",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "7"
+        },
+        {
+          "class": "Quickblade",
+          "name": "Flex",
+          "race": "Zaugurz",
+          "rank": "8"
+        },
+        {
+          "class": "Champion",
+          "name": "Jarvik",
+          "race": "Tarkhnarb",
+          "rank": "9"
+        },
+        {
+          "class": "Champion",
+          "name": "Rasta",
+          "race": "Tarkhnarb",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
