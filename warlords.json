@@ -1,0 +1,138 @@
+{
+  "generated": "Generated on Sun Jan 12 16:42:52 2025",
+  "generated_timestamp": 1736700172,
+  "schema_version": 1,
+  "war_status": "The forces of the Dark Lord prevail over the armies of the West.\nFighting has been limited to a few skirmishes.\nA few great captains of the Dark Lord were boldly slain, latest kill being 32 days ago.\nA few great captains of the West were boldly slain, latest kill being 31 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Warlock",
+          "name": "D\u00f9rb",
+          "race": "Broadbeam",
+          "rank": "1"
+        },
+        {
+          "class": "Bodyguard",
+          "name": "Z\u00faysh\u00eba",
+          "race": "Noldorin",
+          "rank": "2"
+        },
+        {
+          "class": "Ranger",
+          "name": "Lumpin",
+          "race": "Fallohide",
+          "rank": "3"
+        },
+        {
+          "class": "Bodyguard",
+          "name": "Bruenar",
+          "race": "Broadbeam",
+          "rank": "4"
+        },
+        {
+          "class": "Priestess",
+          "name": "Ibuki",
+          "race": "Half-elven",
+          "rank": "5"
+        },
+        {
+          "class": "Mountaineer",
+          "name": "Bhili",
+          "race": "Firebeard",
+          "rank": "6"
+        },
+        {
+          "class": "Hero",
+          "name": "Brenny",
+          "race": "Firebeard",
+          "rank": "7"
+        },
+        {
+          "class": "Heroine",
+          "name": "\u00c9adrith",
+          "race": "Rohirric",
+          "rank": "8"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Tenderheart",
+          "race": "Beorning",
+          "rank": "9"
+        },
+        {
+          "class": "Axemaster",
+          "name": "Aldweth",
+          "race": "Firebeard",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Envoy",
+          "name": "Lonew\u00fclf",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "1"
+        },
+        {
+          "class": "Warg-rider",
+          "name": "Ug\u00falukk",
+          "race": "Morruhk",
+          "rank": "2"
+        },
+        {
+          "class": "Champion",
+          "name": "Nockurzh",
+          "race": "Zaugurz",
+          "rank": "3"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Asharak",
+          "race": "Tarkhnarb",
+          "rank": "4"
+        },
+        {
+          "class": "Champion",
+          "name": "Zambin",
+          "race": "Zaugurz",
+          "rank": "5"
+        },
+        {
+          "class": "Veteran",
+          "name": "Nockrip",
+          "race": "Zaugurz",
+          "rank": "6"
+        },
+        {
+          "class": "Patriarch",
+          "name": "Malantur",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "7"
+        },
+        {
+          "class": "Veteran",
+          "name": "Nockmurlig",
+          "race": "Zaugurz",
+          "rank": "8"
+        },
+        {
+          "class": "Wanderer",
+          "name": "Ramangth",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "9"
+        },
+        {
+          "class": "Witch",
+          "name": "Risha",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
