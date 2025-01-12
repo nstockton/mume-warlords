@@ -1,18 +1,20 @@
+# Copyright (C) 2025 Nick Stockton
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+"""The main module."""
 
 # Future Modules:
 from __future__ import annotations
 
 # Built-in Modules:
 import json
-import os.path
 import sys
 from collections.abc import Callable, Mapping, Sequence
 from datetime import datetime, timezone
-from functools import lru_cache
+from functools import cache
+from pathlib import Path
 from typing import Any, Optional
 
 # Third-party Modules:
@@ -27,6 +29,8 @@ URL: str = "https://mume.org/news/war"
 OUTPUT_PATH: str = "warlords.json"
 SCHEMA_FILE: str = f"warlords_v{SCHEMA_VERSION}.json.schema"
 TIME_FORMAT: str = "Generated on %a %b %d %H:%M:%S %Y"
+NUM_SIDES: int = 2
+NUM_HEADERS: int = 8
 
 
 def get_directory_path(*args: str) -> str:
@@ -34,21 +38,27 @@ def get_directory_path(*args: str) -> str:
 	Retrieves the path of the directory where the program is located.
 
 	Args:
-		*args: Positional arguments to be passed to os.join after the directory path.
+		*args: Positional arguments to be passed to Path.joinpath after the directory path.
 
 	Returns:
 		The path.
 	"""
-	if getattr(sys, "frozen", None):
-		path = os.path.dirname(sys.executable)
-	else:
-		path = os.path.join(os.path.dirname(__file__))
-	return os.path.realpath(os.path.join(path, *args))
+	path = Path(sys.executable if getattr(sys, "frozen", None) else __file__)
+	return str(path.parent.joinpath(*args).resolve())
 
 
-@lru_cache(maxsize=None)
+@cache
 def get_validator(schema_path: str) -> Callable[..., None]:  # type: ignore[misc]
-	with open(schema_path, "rb") as file_obj:
+	"""
+	Retrieves the validator function for a given schema.
+
+	Args:
+		schema_path: The path to the schema.
+
+	Returns:
+		The validator function.
+	"""
+	with Path(schema_path).open(mode="rb") as file_obj:
 		validator: Callable[..., None] = fastjsonschema.compile(json.load(file_obj))
 	return validator
 
@@ -79,7 +89,7 @@ def save(data: Mapping[str, Any], output_path: str, schema_path: str) -> None:
 		schema_path: The location of the schema.
 	"""
 	lf: str = "\n"
-	with open(output_path, "w", encoding="utf-8", newline=lf) as file_obj:
+	with Path(output_path).open(mode="w", encoding="utf-8", newline=lf) as file_obj:
 		validate(data, schema_path)
 		json.dump(data, file_obj, sort_keys=True, indent=2)
 		file_obj.write(lf)
@@ -95,6 +105,9 @@ def split_list(lst: Sequence[Any], parts: Optional[int] = None) -> list[Sequence
 
 	Returns:
 		A new list containing the multiple parts as lists.
+
+	Raises:
+		ValueError: Not enough parts.
 	"""
 	if parts is None:
 		return [list(lst)]
@@ -105,17 +118,27 @@ def split_list(lst: Sequence[Any], parts: Optional[int] = None) -> list[Sequence
 
 
 def get_warlords() -> dict[str, Any]:
-	page = requests.get(URL)
+	"""
+	Retrieves the warlords information.
+
+	Returns:
+		The warlords information.
+
+	Raises:
+		RuntimeError: An error occurred while retrieving warlords information.
+		ValueError: Invalid length.
+	"""
+	page = requests.get(URL, timeout=10.0)
 	page.raise_for_status()
 	soup = BeautifulSoup(page.text, "html.parser")
 	war_status: str
 	generated: str
 	tag = soup.find("h2", string="War status")
 	if not isinstance(tag, Tag):
-		raise RuntimeError("War status heading not found.")
+		raise RuntimeError("War status heading not found.")  # NOQA: TRY004
 	tag = tag.find_next_sibling("p")
 	if not isinstance(tag, Tag):  # pragma: no cover
-		raise RuntimeError("War status text not found.")
+		raise RuntimeError("War status text not found.")  # NOQA: TRY004
 	war_status, generated = tag.text.strip().rsplit("\n", 1)
 	generated = " ".join(generated.split())  # Replace whitespace with single spaces.
 	generated_timestamp: int = int(
@@ -123,16 +146,16 @@ def get_warlords() -> dict[str, Any]:
 	)
 	table = soup.find("table", attrs={"class": "msg_body warlords"})
 	if not isinstance(table, Tag):
-		raise RuntimeError("Warlords table not found.")
+		raise RuntimeError("Warlords table not found.")  # NOQA: TRY004
 	rows = table.find_all("tr")
 	side_of_war: list[str]
 	side_of_war = [i.text.strip() for i in rows.pop(0).find_all("th")]
-	if len(side_of_war) != 2:
-		raise ValueError(f"Length of side_of_war was {len(side_of_war)}, should be 2.")
+	if len(side_of_war) != NUM_SIDES:
+		raise ValueError(f"Length of side_of_war was {len(side_of_war)}, should be {NUM_SIDES}.")
 	headers: list[str]
 	headers = [i.text.strip().lower() for i in rows.pop(0).find_all("th")]
-	if len(headers) != 8:
-		raise ValueError(f"Length of headers was {len(headers)}, should be 8.")
+	if len(headers) != NUM_HEADERS:
+		raise ValueError(f"Length of headers was {len(headers)}, should be {NUM_HEADERS}.")
 	warlords: list[dict[str, Any]]
 	warlords = [{"description": i, "characters": []} for i in side_of_war]
 	for row in rows:
@@ -150,5 +173,6 @@ def get_warlords() -> dict[str, Any]:
 
 
 def run() -> None:
+	"""Runs the program."""
 	results: dict[str, Any] = get_warlords()
 	save(results, OUTPUT_PATH, get_directory_path(SCHEMA_FILE))

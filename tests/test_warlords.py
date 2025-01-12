@@ -1,15 +1,15 @@
+# Copyright (C) 2025 Nick Stockton
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
 
 # Future Modules:
 from __future__ import annotations
 
 # Built-in Modules:
 import json
-import os.path
 import sys
+from pathlib import Path
 from typing import Any
 from unittest import TestCase
 from unittest.mock import Mock, patch
@@ -20,14 +20,14 @@ from mocket.mockhttp import Entry
 
 # Warlords Modules:
 from warlords.main import OUTPUT_PATH, SCHEMA_FILE, URL
-from warlords.main import __file__ as WARLORDS_PATH
+from warlords.main import __file__ as WARLORDS_PATH  # NOQA: N812
 from warlords.main import get_directory_path, get_warlords, run, save, split_list, validate
 
 
-EXAMPLES_PATH: str = os.path.realpath(os.path.join(os.path.dirname(__file__), "examples"))
-with open(os.path.join(EXAMPLES_PATH, "response.html"), "r", encoding="utf-8") as file_obj:
+EXAMPLES_PATH: Path = Path(__file__).parent / "examples"
+with (EXAMPLES_PATH / "response.html").open(encoding="utf-8") as file_obj:
 	EXAMPLE_RESPONSE: str = file_obj.read()
-with open(os.path.join(EXAMPLES_PATH, "output.json"), "r", encoding="utf-8") as file_obj:
+with (EXAMPLES_PATH / "output.json").open(encoding="utf-8") as file_obj:
 	EXAMPLE_OUTPUT: str = file_obj.read()
 
 
@@ -35,13 +35,13 @@ class TestWarlords(TestCase):
 	@patch("warlords.main.sys")
 	def test_get_directory_path(self, mock_sys: Mock) -> None:
 		subdirectory: tuple[str, ...] = ("level1", "level2")
-		frozen_dir_name: str = os.path.dirname(sys.executable)
-		frozen_output: str = os.path.realpath(os.path.join(frozen_dir_name, *subdirectory))
+		frozen_dir_name: Path = Path(sys.executable).parent
+		frozen_output: str = str(frozen_dir_name.joinpath(*subdirectory).resolve())
 		mock_sys.frozen = True
 		mock_sys.executable = sys.executable
 		self.assertEqual(get_directory_path(*subdirectory), frozen_output)
-		unfrozen_dir_name: str = os.path.dirname(WARLORDS_PATH)
-		unfrozen_output: str = os.path.realpath(os.path.join(unfrozen_dir_name, *subdirectory))
+		unfrozen_dir_name: Path = Path(WARLORDS_PATH).parent
+		unfrozen_output: str = str(unfrozen_dir_name.joinpath(*subdirectory).resolve())
 		mock_sys.frozen = False
 		self.assertEqual(get_directory_path(*subdirectory), unfrozen_output)
 
@@ -59,7 +59,7 @@ class TestWarlords(TestCase):
 	def test_save(self, mock_validate: Mock, mock_json_dump: Mock) -> None:
 		schema_path: str = get_directory_path(SCHEMA_FILE)
 		example_json: dict[str, Any] = json.loads(EXAMPLE_OUTPUT)
-		with patch("warlords.main.open") as context:
+		with patch("warlords.main.Path.open") as context:
 			mock_file_obj: Mock = context.return_value.__enter__.return_value
 			save(example_json, "__junk__.json", schema_path)
 			mock_validate.assert_called_once_with(example_json, schema_path)
