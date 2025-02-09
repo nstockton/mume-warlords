@@ -1,7 +1,7 @@
 [build-system]
 	requires = [
-		"poetry-core>=1.0.0",
-		"poetry-dynamic-versioning==1.4.0",
+		"poetry-core==2.0.1",
+		"poetry-dynamic-versioning==1.6.0",
 	]
 	build-backend = "poetry_dynamic_versioning.backend"
 
@@ -52,24 +52,24 @@
 [tool.poetry.dependencies]
 	python = "^3.9"
 	beautifulsoup4 = "^4.12"
-	fastjsonschema = "2.19.0"
-	requests = {version = "^2.31", extras = ["security"]}
+	fastjsonschema = "2.21.1"
+	requests = {version = "^2.32", extras = ["security"]}
 
-[tool.poetry.dev-dependencies]
-	mocket = "^3.12"
-	poetry-dynamic-versioning = {version = "1.4.0", extras = ["plugin"]}
+[tool.poetry.group.dev.dependencies]
+	mocket = "^3.13"
+	poetry-dynamic-versioning = {version = "1.6.0", extras = ["plugin"]}
 	pre-commit = "^3.5"
 	python-magic-bin = {version = "^0.4", markers = "sys_platform == 'darwin' or sys_platform == 'win32'"}
 	types-beautifulsoup4 = "^4.12"
-	types-requests = "^2.31"
+	types-requests = "^2.32"
 
 [tool.poetry.group.lint.dependencies]
 	isort = "^5.13"
-	mypy = "^1.8"
+	mypy = "^1.14"
 	ruff = "^0.9"
 
 [tool.poetry.group.test.dependencies]
-	coverage = {version = "^7.4", extras = ["toml"]}
+	coverage = {version = "^7.6", extras = ["toml"]}
 
 [tool.poetry.scripts]
 	warlords = "warlords.main:run"
