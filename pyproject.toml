@@ -117,12 +117,12 @@
 		"EM",  # Flake8-errmsg.
 		"G",  # Flake8-logging-format.
 		"I",  # ISort. (We use ISort package for this)
-		"ISC001",  # Implicitly concatenated string literals on one line. (Conflicts with formatter)
 		"PT",  # Flake8-pytest-style.
 		"T20",  # Flake8-print.
 		"TCH",  # Flake8-type-checking.
 		"TRY003",  # Avoid specifying long messages outside the exception class.
-		"UP007",  # Use X | Y for type annotations. (I hate this syntax)
+		"UP007",  # Use X | Y for union type annotations. (I hate this syntax)
+		"UP045",  # Use X | Y for optional type annotations. (I hate this syntax)
 		"W191",  # Indentation contains tabs.
 	]
 	typing-modules = []
