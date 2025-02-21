@@ -1,20 +1,26 @@
 [build-system]
-	requires = [
-		"poetry-core==2.0.1",
-		"poetry-dynamic-versioning==1.6.0",
-	]
-	build-backend = "poetry_dynamic_versioning.backend"
+	requires = ["pdm-backend"]
+	build-backend = "pdm.backend"
 
-[tool.poetry]
+[project]
 	name = "mume-warlords"
-	version = "0.0.0"
+	authors = [
+		{name = "Nick Stockton", email = "nstockton@users.noreply.github.com"},
+	]
 	description = "Exports the warlords list from MUME to JSON format."
-	authors = ["Nick Stockton <nstockton@users.noreply.github.com>"]
-	license = "MPL-2.0"
+	license = {text = "MPL-2.0"}
 	readme = "README.md"
-	homepage = "https://github.com/nstockton/mume-warlords"
-	repository = "https://github.com/nstockton/mume-warlords"
-	keywords = ["mume", "warlords"]
+	requires-python = ">=3.9,<4.0"
+	dependencies = [
+		"beautifulsoup4>=4.12,<5.0",
+		"fastjsonschema==2.21.1",
+		"requests[security]>=2.32,<3.0",
+	]
+	dynamic = ["version"]
+	keywords = [
+		"mume",
+		"warlords",
+	]
 	classifiers = [
 		"Development Status :: 5 - Production/Stable",
 		"Environment :: Console",
@@ -40,52 +46,53 @@
 		"Operating System :: Unix",
 		"Topic :: Utilities",
 	]
-	packages = [
-		{include = "warlords", from = "src"},
-	]
-	include = [
-		{path = "tests/*", format = "sdist"},
-		{path = "poetry.lock", format = "sdist"},
-	]
-	exclude = []
 
-[tool.poetry.dependencies]
-	python = "^3.9"
-	beautifulsoup4 = "^4.12"
-	fastjsonschema = "2.21.1"
-	requests = {version = "^2.32", extras = ["security"]}
+[project.urls]
+	homepage = "https://github.com/nstockton/mume-warlords"
+	repository = "https://github.com/nstockton/mume-warlords"
 
-[tool.poetry.group.dev.dependencies]
-	mocket = "^3.13"
-	poetry-dynamic-versioning = {version = "1.6.0", extras = ["plugin"]}
-	pre-commit = "^3.5"
-	python-magic-bin = {version = "^0.4", markers = "sys_platform == 'darwin' or sys_platform == 'win32'"}
-	types-beautifulsoup4 = "^4.12"
-	types-requests = "^2.32"
-
-[tool.poetry.group.lint.dependencies]
-	isort = "^5.13"
-	mypy = "^1.14"
-	ruff = "^0.9"
-
-[tool.poetry.group.test.dependencies]
-	coverage = {version = "^7.6", extras = ["toml"]}
-
-[tool.poetry.scripts]
+[project.scripts]
 	warlords = "warlords.main:run"
 
-[tool.poetry-dynamic-versioning]
-	enable = true
-	vcs = "git"
-	format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}+{{ distance }}.g{{ commit|truncate(7,true,'') }}{% endif %}"
+[dependency-groups]
+	dev = [
+		"mocket>=3.13,<4.0",
+		"pre-commit>=3.5,<4.0",
+		"python-magic-bin>=0.4,<1.0; sys_platform == \"darwin\" or sys_platform == \"win32\"",
+		"types-beautifulsoup4>=4.12,<5.0",
+		"types-requests>=2.32,<3.0",
+	]
+	lint = [
+		"isort>=5.13,<6.0",
+		"mypy>=1.14,<2.0",
+		"ruff>=0.9,<1.0",
+	]
+	test = [
+		"coverage[toml]>=7.6,<8.0",
+	]
 
-[tool.poetry-dynamic-versioning.substitution]
-	files = [
-		"src/*.py", "src/*/__init__.py", "src/*/__version__.py", "src/*/_version.py",
+[tool.pdm.build]
+	package-dir = "src"
+	includes = [
+		"src/warlords",
 	]
-	patterns = [
-		"(^__version__(?:\\s*[:]\\s*str)?\\s*=\\s*['\"])[^'\"]*(['\"])",
+	excludes = []
+	source-includes = [
+		"tests",
+		"uv.lock",
 	]
+
+[tool.pdm.version]
+	fallback_version = "0.0.0"
+	source = "scm"
+	tag_filter = "[vV][0-9]*"
+	tag_regex = '^(?:[vV])(?P<version>\d+\.\d+\.\d+)(?:.*)$'
+	write_to = "warlords/_version.py"
+	write_template = "__version__: str = \"{}\"\r\n"
+
+[tool.uv]
+	default-groups = ["dev", "lint", "test"]
+	upgrade-package = ["mume-warlords"]
 
 [tool.ruff]
 	extend-include = [
@@ -145,6 +152,7 @@
 [tool.ruff.lint.per-file-ignores]
 	"**/__init__.py" = ["D1"]
 	"**/__main__.py" = ["D1"]
+	"**/_version.py" = ["CPY001"]
 	"./tests/**" = ["D1", "PLR6301"]
 	"**/typedef.py" = ["F401"]
 

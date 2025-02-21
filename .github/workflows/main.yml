@@ -55,15 +55,15 @@ jobs:
         id: cache_virtualenv
         uses: actions/cache@v4
         with:
-          key: venv-${{ env.ImageOS }}${{ runner.arch }}-${{ env.ImageVersion }}-py${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('**/requirements-poetry.txt', '**/poetry.lock') }}
+          key: venv-${{ env.ImageOS }}${{ runner.arch }}-${{ env.ImageVersion }}-py${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('**/requirements-uv.txt', '**/uv.lock') }}
           path: .venv
       - name: Install dependencies
         if: steps.cache_virtualenv.outputs.cache-hit != 'true'
         run: |
           python -m venv .venv
           source ${{ matrix.activate_path }}
-          python -m pip install --progress-bar off --upgrade --require-hashes --requirement requirements-poetry.txt
-          poetry install --no-interaction
+          python -m pip install --progress-bar off --upgrade --require-hashes --requirement requirements-uv.txt
+          uv sync
       - name: Lint And Test
         run: |
           source ${{ matrix.activate_path }}
@@ -71,4 +71,4 @@ jobs:
           python -m pre_commit install -t pre-push
           python -m pre_commit run --all-files --show-diff-on-failure --hook-stage commit
           python -m pre_commit run --all-files --show-diff-on-failure --hook-stage push
-          poetry build --no-interaction
+          uv build

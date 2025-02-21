@@ -7,4 +7,8 @@
 from __future__ import annotations
 
 
-__version__: str = "0.0.0"
+__version__: str
+try:  # pragma: no cover
+	from ._version import __version__
+except ImportError:  # pragma: no cover
+	__version__ = "0.0.0"
