@@ -6,9 +6,17 @@
 # Future Modules:
 from __future__ import annotations
 
+# Built-in Modules:
+from contextlib import suppress
+from typing import TYPE_CHECKING
 
-__version__: str
-try:  # pragma: no cover
-	from ._version import __version__
-except ImportError:  # pragma: no cover
-	__version__ = "0.0.0"
+
+__version__: str = "0.0.0"
+if not TYPE_CHECKING:
+	with suppress(ImportError):
+		from ._version import __version__
+
+
+__all__: list[str] = [
+	"__version__",
+]
