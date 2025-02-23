@@ -1,0 +1,138 @@
+{
+  "generated": "Generated on Sun Feb 23 17:33:03 2025",
+  "generated_timestamp": 1740331983,
+  "schema_version": 1,
+  "war_status": "The forces of the Dark Lord prevail over the armies of the West.\nFighting has been limited to a few skirmishes.\nA few noted officers of the Dark Lord fell in battle, latest kill being 33 days ago.\nA few soldiers of the West were boldly slain, latest kill being 6 days ago.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Ranger",
+          "name": "Eolo",
+          "race": "Silvan",
+          "rank": "1"
+        },
+        {
+          "class": "Ranger",
+          "name": "Arkhag\u00e2l",
+          "race": "Firebeard",
+          "rank": "2"
+        },
+        {
+          "class": "Soldier",
+          "name": "Sm\u00e1rbeorn",
+          "race": "Beorning",
+          "rank": "3"
+        },
+        {
+          "class": "Heroine",
+          "name": "\u00c9adrith",
+          "race": "Rohirric",
+          "rank": "4"
+        },
+        {
+          "class": "Sage",
+          "name": "L\u00fathon",
+          "race": "Half-elven",
+          "rank": "5"
+        },
+        {
+          "class": "Warlock",
+          "name": "D\u00f9rb",
+          "race": "Broadbeam",
+          "rank": "6"
+        },
+        {
+          "class": "Bodyguard",
+          "name": "Z\u00faysh\u00eba",
+          "race": "Noldorin",
+          "rank": "7"
+        },
+        {
+          "class": "Hero",
+          "name": "Kungfury",
+          "race": "Half-elven",
+          "rank": "8"
+        },
+        {
+          "class": "Hero",
+          "name": "Pation",
+          "race": "Noldorin",
+          "rank": "9"
+        },
+        {
+          "class": "Battlemistress",
+          "name": "Dola",
+          "race": "Stoor",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Adventurer",
+          "name": "Jitter",
+          "race": "Morruhk",
+          "rank": "1"
+        },
+        {
+          "class": "Assassin",
+          "name": "Melker",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "2"
+        },
+        {
+          "class": "Necromancer",
+          "name": "Sumba",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "3"
+        },
+        {
+          "class": "Battlemaster",
+          "name": "Yam",
+          "race": "Tarkhnarb",
+          "rank": "4"
+        },
+        {
+          "class": "Warg-rider",
+          "name": "Ug\u00falukk",
+          "race": "Morruhk",
+          "rank": "5"
+        },
+        {
+          "class": "Veteran",
+          "name": "Nockrip",
+          "race": "Zaugurz",
+          "rank": "6"
+        },
+        {
+          "class": "Necromancer",
+          "name": "Azule",
+          "race": "Tarkhnarb",
+          "rank": "7"
+        },
+        {
+          "class": "Envoy",
+          "name": "Lonew\u00fclf",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "8"
+        },
+        {
+          "class": "Wizard",
+          "name": "Clok",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "9"
+        },
+        {
+          "class": "Veteran",
+          "name": "Nockmurlig",
+          "race": "Zaugurz",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
