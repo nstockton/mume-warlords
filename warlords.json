@@ -1,0 +1,138 @@
+{
+  "generated": "Generated on Sat Oct 24 16:14:37 2026",
+  "generated_timestamp": 1792858477,
+  "schema_version": 1,
+  "war_status": "The forces of the Dark Lord prevail over the armies of the West.\nFighting has been limited to a few skirmishes.\nA few soldiers of the Dark Lord fell in battle, latest kill being 2 days ago.\nA few soldiers of the West were boldly slain, latest kill being today.\n",
+  "warlords": [
+    {
+      "characters": [
+        {
+          "class": "Mountaineer",
+          "name": "Lacra",
+          "race": "Noldorin",
+          "rank": "1"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Rudel",
+          "race": "Harfoot",
+          "rank": "2"
+        },
+        {
+          "class": "Hero",
+          "name": "Snort",
+          "race": "Harfoot",
+          "rank": "3"
+        },
+        {
+          "class": "Burglar",
+          "name": "Qiv\u00fdre",
+          "race": "Silvan",
+          "rank": "4"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Indomie",
+          "race": "Half-elven",
+          "rank": "5"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Berilac",
+          "race": "Fallohide",
+          "rank": "6"
+        },
+        {
+          "class": "Heroine",
+          "name": "Gittan",
+          "race": "Fallohide",
+          "rank": "7"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Ornithir",
+          "race": "Silvan",
+          "rank": "8"
+        },
+        {
+          "class": "Footpad",
+          "name": "Nou",
+          "race": "Noldorin",
+          "rank": "9"
+        },
+        {
+          "class": "Rider",
+          "name": "R\u00e9dor",
+          "race": "Rohirric",
+          "rank": "10"
+        }
+      ],
+      "description": "Armies of the West"
+    },
+    {
+      "characters": [
+        {
+          "class": "Mountaineer",
+          "name": "Z\u00fbd",
+          "race": "Tarkhnarb",
+          "rank": "1"
+        },
+        {
+          "class": "Burglar",
+          "name": "Throzghul",
+          "race": "Zaugurz",
+          "rank": "2"
+        },
+        {
+          "class": "Necromancer",
+          "name": "Beleg\u00fbr",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "3"
+        },
+        {
+          "class": "Warg-rider",
+          "name": "Mrruhk",
+          "race": "Morruhk",
+          "rank": "4"
+        },
+        {
+          "class": "Warg-rider",
+          "name": "Buzzkill",
+          "race": "Morruhk",
+          "rank": "5"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Lotheila",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "6"
+        },
+        {
+          "class": "Champion",
+          "name": "Itz\u00eet",
+          "race": "Tarkhnarb",
+          "rank": "7"
+        },
+        {
+          "class": "Adventurer",
+          "name": "Tarannan",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "8"
+        },
+        {
+          "class": "Envoy",
+          "name": "Kakaroto",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "9"
+        },
+        {
+          "class": "Burglar",
+          "name": "M\u00edw\u00edz\u00edw\u00ed",
+          "race": "Black N\u00famen\u00f3rean",
+          "rank": "10"
+        }
+      ],
+      "description": "Forces of the Dark Lord"
+    }
+  ]
+}
